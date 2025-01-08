@@ -1,0 +1,12 @@
+name: run-github-actions
+run-name: ${{github.actor}} is learning Github Actions
+on: [push]
+jobs:
+  cheak-bats-version:
+    runs-on: ubuntu-latest
+      steps:
+        -user : actions/cheakout@v3
+          with:
+            node-version:'14'
+        - run: npm install -g bats
+        - run : bats -v
